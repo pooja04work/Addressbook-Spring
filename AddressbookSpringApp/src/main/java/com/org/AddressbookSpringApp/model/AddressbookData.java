@@ -25,6 +25,7 @@ public class AddressbookData {
     private String emailId;
     private int zip;
     private long phoneNumber;
+
     public AddressbookData(AddressbookDTO addressbookDTO) {
         this.id = id;
         this.firstName = addressbookDTO.firstName;

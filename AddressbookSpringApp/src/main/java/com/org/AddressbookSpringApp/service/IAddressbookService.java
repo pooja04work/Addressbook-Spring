@@ -6,9 +6,9 @@ import com.org.AddressbookSpringApp.model.AddressbookData;
 import java.util.List;
 
 public interface IAddressbookService {
-    List<AddressbookData> getAddressbookData();
+    List<AddressbookDTO> getAddressbookData();
     AddressbookData getAddressbookDataById(int id);
-    AddressbookData addAddressbookData(AddressbookDTO addressbookDTO);
-    AddressbookData updateAddressbookData(int id, AddressbookDTO addressbookDTO);
+    AddressbookDTO addAddressbookData(AddressbookDTO addressbookDTO);
+    AddressbookDTO updateAddressbookData(int id, AddressbookDTO addressbookDTO);
     void deleteAddressbookData(int id);
 }

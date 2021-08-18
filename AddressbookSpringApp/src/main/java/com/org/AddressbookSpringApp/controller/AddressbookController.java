@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
@@ -25,13 +24,13 @@ public class AddressbookController {
     Logger logger = LoggerFactory.getLogger(AddressbookController.class);
 
     /*
-    * @method: Ability To Get All Person From DB Using GET Method
-    * @Execution URL: localhost:8080/addressbook/get
-    */
+     * @method: Ability To Get All Person From DB Using GET Method
+     * @Execution URL: localhost:8080/addressbook/get
+     */
     @RequestMapping("/get")
     public ResponseEntity<ResponseDTO> getAddressbookData() {
         logger.trace("Retrieve List of person from addressbook");
-        List<AddressbookData> addressbookList =  addressbookService.getAddressbookData();
+        List<AddressbookDTO> addressbookList =  addressbookService.getAddressbookData();
         ResponseDTO responseDTO = new ResponseDTO("get call Success", addressbookList);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
@@ -44,8 +43,8 @@ public class AddressbookController {
     @GetMapping("/get/{id}")
     public ResponseEntity<ResponseDTO> getAddressbookData(@PathVariable("id") int id){
         logger.trace("Find a employee by Id from addressbook");
-        AddressbookData addressbookData = addressbookService.getAddressbookDataById(id);
-        ResponseDTO responseDTO = new ResponseDTO("Get correct Data", addressbookData);
+        AddressbookData addressbookDTO = addressbookService.getAddressbookDataById(id);
+        ResponseDTO responseDTO = new ResponseDTO("Get correct Data", addressbookDTO);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
@@ -57,8 +56,8 @@ public class AddressbookController {
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addAddressbookData(@Valid @RequestBody AddressbookDTO addressbookDTO) {
         logger.trace("Adding person To addressbook");
-        AddressbookData addressbookData = addressbookService.addAddressbookData(addressbookDTO);
-        ResponseDTO responseDTO = new ResponseDTO("add person Successfully", addressbookData);
+        AddressbookDTO addressbookDTO1 = addressbookService.addAddressbookData(addressbookDTO);
+        ResponseDTO responseDTO = new ResponseDTO("add person Successfully", addressbookDTO1);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
@@ -70,8 +69,8 @@ public class AddressbookController {
     @PutMapping("/update/{id}")
     public ResponseEntity<ResponseDTO> updateAddressbookData(@Valid @RequestBody AddressbookDTO addressbookDTO,@PathVariable int id) {
         logger.trace("Update person detail By Id to addressbook");
-        AddressbookData addressbookData = addressbookService.updateAddressbookData(id,addressbookDTO);
-        ResponseDTO responseDTO = new ResponseDTO("Updated person Successfully", addressbookData);
+        AddressbookDTO addressbookDTO1 = addressbookService.updateAddressbookData(id,addressbookDTO);
+        ResponseDTO responseDTO = new ResponseDTO("Updated person Successfully", addressbookDTO1);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
 
