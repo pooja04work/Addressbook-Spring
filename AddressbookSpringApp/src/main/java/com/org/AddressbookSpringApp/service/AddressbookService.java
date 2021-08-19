@@ -51,7 +51,9 @@ public class AddressbookService implements IAddressbookService {
     public AddressbookDTO updateAddressbookData(int id, AddressbookDTO addressbookDTO) {
         AddressbookData addressbookData = addressbookRepository.findById(id).
                 orElseThrow(() -> new AddressbookException(ExceptionConstant.ID_NOT_FOUND.getMessage()));
-        BeanUtils.copyProperties(addressbookDTO, addressbookData);
+        String[] ignoreFields = {"id", "name", "createdDate"};
+        BeanUtils.copyProperties(addressbookDTO, addressbookData, ignoreFields);
+        addressbookRepository.save(addressbookData);
         return addressbookDTO;
     }
 
