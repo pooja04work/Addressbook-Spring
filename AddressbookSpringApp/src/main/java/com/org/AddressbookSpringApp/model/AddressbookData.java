@@ -25,27 +25,4 @@ public class AddressbookData {
     private String emailId;
     private int zip;
     private long phoneNumber;
-
-    public AddressbookData(AddressbookDTO addressbookDTO) {
-        this.id = id;
-        this.firstName = addressbookDTO.firstName;
-        this.lastName = addressbookDTO.lastName;
-        this.city = addressbookDTO.city;
-        this.state = addressbookDTO.state;
-        this.emailId = addressbookDTO.emailId;
-        this.zip = addressbookDTO.zip;
-        this.phoneNumber = addressbookDTO.phoneNumber;
-    }
-
-
-    public void updateaddressbookData(AddressbookDTO addressbookDTO) {
-        this.id = id;
-        this.firstName = addressbookDTO.firstName;
-        this.lastName = addressbookDTO.lastName;
-        this.city = addressbookDTO.city;
-        this.state = addressbookDTO.state;
-        this.emailId = addressbookDTO.emailId;
-        this.zip = addressbookDTO.zip;
-        this.phoneNumber = addressbookDTO.phoneNumber;
-    }
 }

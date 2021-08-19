@@ -33,7 +33,6 @@ public class AddressbookService implements IAddressbookService {
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public AddressbookData getAddressbookDataById(int id) {
         return addressbookRepository.findById(id).
